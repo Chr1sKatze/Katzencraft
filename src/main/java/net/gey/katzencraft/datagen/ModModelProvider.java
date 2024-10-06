@@ -27,5 +27,6 @@ public class ModModelProvider extends FabricModelProvider {
         // Creates the modcontent model .json files (items)
         itemModelGenerator.register(ModItems.PINK_GARNET, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_PINK_GARNET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PINK_CAKE, Models.GENERATED);
     }
 }
