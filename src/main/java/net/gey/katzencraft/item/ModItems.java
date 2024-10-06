@@ -3,6 +3,8 @@ package net.gey.katzencraft.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.gey.katzencraft.KatzencraftMod;
 import net.gey.katzencraft.ModFoodComponents;
+import net.gey.katzencraft.block.ModBlocks;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -22,6 +24,8 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item PINK_CAKE = registerItem("pink_cake",
             new Item(new FabricItemSettings().food(ModFoodComponents.PINK_CAKE)));
+    public static final Item PINK_CAKE_SEEDS = registerItem("pink_cake_seeds",
+            new AliasedBlockItem(ModBlocks.PINK_CAKE_CROP, new FabricItemSettings()));
 
     // Initializes and logs ModItems content
     public static void registerModItems() {

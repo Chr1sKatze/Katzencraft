@@ -3,6 +3,7 @@ package net.gey.katzencraft.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.gey.katzencraft.KatzencraftMod;
+import net.gey.katzencraft.block.custom.PinkCakeCropBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -25,11 +26,18 @@ public class ModBlocks {
                 new BlockItem(block, new FabricItemSettings()));
     }
 
-    // Block & BlockItem List
+    // Register Block Content
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
+        return Registry.register(Registries.BLOCK, new Identifier(KatzencraftMod.MOD_ID, name), block);
+    }
+
+    // Block List
     public static final Block PINK_GARNET_BLOCK = registerBlock("pink_garnet_block",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
     public static final Block PINK_GARNET_ORE = registerBlock("pink_garnet_ore",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block PINK_CAKE_CROP = registerBlockWithoutBlockItem("pink_cake_crop",
+            new PinkCakeCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
 
     // Initializes and logs ModBlock content
     public static void registerModBlocks() {

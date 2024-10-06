@@ -28,5 +28,6 @@ public class ModItemGroup {
                         entries.add(ModBlocks.PINK_GARNET_BLOCK);
                         entries.add(ModBlocks.PINK_GARNET_ORE);
                         entries.add(ModItems.PINK_CAKE);
+                        entries.add(ModItems.PINK_CAKE_SEEDS);
                     }).build());
 }
