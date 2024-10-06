@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "katzencraft:block/pink_cake_crop_stage1"
+  }
+}
