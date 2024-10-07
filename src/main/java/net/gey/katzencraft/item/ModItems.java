@@ -26,6 +26,10 @@ public class ModItems {
             new Item(new FabricItemSettings().food(ModFoodComponents.PINK_CAKE)));
     public static final Item PINK_CAKE_SEEDS = registerItem("pink_cake_seeds",
             new AliasedBlockItem(ModBlocks.PINK_CAKE_CROP, new FabricItemSettings()));
+    public static final Item BLUE_CAKE = registerItem("blue_cake",
+            new Item(new FabricItemSettings().food(ModFoodComponents.BLUE_CAKE)));
+    public static final Item BLUE_CAKE_SEEDS = registerItem("blue_cake_seeds",
+            new AliasedBlockItem(ModBlocks.BLUE_CAKE_CROP, new FabricItemSettings()));
 
     // Initializes and logs ModItems content
     public static void registerModItems() {

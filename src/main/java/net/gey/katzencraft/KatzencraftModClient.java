@@ -11,5 +11,6 @@ public class KatzencraftModClient implements ClientModInitializer {
 
         // gives transparency to crops
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_CAKE_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUE_CAKE_CROP, RenderLayer.getCutout());
     }
 }
