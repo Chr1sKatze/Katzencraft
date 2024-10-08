@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.gey.katzencraft.KatzencraftMod;
 import net.gey.katzencraft.block.custom.BlueCakeCropBlock;
 import net.gey.katzencraft.block.custom.PinkCakeCropBlock;
+import net.gey.katzencraft.block.custom.YellowCakeCropBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -41,6 +42,8 @@ public class ModBlocks {
             new PinkCakeCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
     public static final Block BLUE_CAKE_CROP = registerBlockWithoutBlockItem("blue_cake_crop",
             new BlueCakeCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
+    public static final Block YELLOW_CAKE_CROP = registerBlockWithoutBlockItem("yellow_cake_crop",
+            new YellowCakeCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
 
     // Initializes and logs ModBlock content
     public static void registerModBlocks() {

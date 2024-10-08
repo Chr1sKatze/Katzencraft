@@ -16,9 +16,9 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class BlueCakeCropBlock extends CropBlock {
+public class YellowCakeCropBlock extends CropBlock {
     public static final int FIRST_STAGE_MAX_AGE = 7;
-    public static final int SECOND_STAGE_MAX_AGE = 1;
+    public static final int SECOND_STAGE_MAX_AGE = 7;
     private static final VoxelShape[] AGE_TO_SHAPE =
             new VoxelShape[]{
                     Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
@@ -29,11 +29,17 @@ public class BlueCakeCropBlock extends CropBlock {
                     Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
                     Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
                     Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D)};
+                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
+                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
+                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
+                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D),
+                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
+                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
+                    Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
 
-    public static final IntProperty AGE = IntProperty.of("age", 0, 8);
+    public static final IntProperty AGE = IntProperty.of("age", 0, 14);
 
-    public BlueCakeCropBlock(Settings settings) {
+    public YellowCakeCropBlock(Settings settings) {
         super(settings);
     }
 
@@ -57,7 +63,7 @@ public class BlueCakeCropBlock extends CropBlock {
                 if (random.nextInt((int) (25.0F / f) + 1) == 0) {
                     if (currentAge == FIRST_STAGE_MAX_AGE) {
                         if (world.getBlockState(pos.up(1)).isOf(Blocks.AIR)) {
-                            world.setBlockState(pos.up(1), this.withAge(currentAge + SECOND_STAGE_MAX_AGE), 2);
+                            world.setBlockState(pos.up(1), this.withAge(currentAge + 1), 2);
                         }
                     } else {
                         world.setBlockState(pos, this.withAge(currentAge + 1), 2);
@@ -84,15 +90,15 @@ public class BlueCakeCropBlock extends CropBlock {
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
-        return !(this.isMature(state) || (state.get(AGE) >= 7 && !world.getBlockState(pos.up(1)).isOf(Blocks.AIR)));
+        return !(this.isMature(state) || (state.get(AGE) >= 14 && !world.getBlockState(pos.up(1)).isOf(Blocks.AIR)));
     }
 
     @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (world.getBlockState(pos.up(1)).isOf(ModBlocks.BLUE_CAKE_CROP)) {
+        if (world.getBlockState(pos.up(1)).isOf(ModBlocks.YELLOW_CAKE_CROP)) {
             world.breakBlock(pos.up(1), true);
         }
-        if (world.getBlockState(pos.down(1)).isOf(ModBlocks.BLUE_CAKE_CROP)) {
+        if (world.getBlockState(pos.down(1)).isOf(ModBlocks.YELLOW_CAKE_CROP)) {
             world.breakBlock(pos.down(1), false);
         }
         super.onBreak(world, pos, state, player);
@@ -105,7 +111,7 @@ public class BlueCakeCropBlock extends CropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.BLUE_CAKE_SEEDS;
+        return ModItems.YELLOW_CAKE_SEEDS;
     }
 
     @Override

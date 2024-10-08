@@ -5,8 +5,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.gey.katzencraft.block.ModBlocks;
 import net.gey.katzencraft.block.custom.BlueCakeCropBlock;
 import net.gey.katzencraft.block.custom.PinkCakeCropBlock;
+import net.gey.katzencraft.block.custom.YellowCakeCropBlock;
 import net.gey.katzencraft.item.ModItems;
-import net.minecraft.loot.condition.AnyOfLootCondition;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
 
@@ -32,6 +32,11 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builder3 = BlockStatePropertyLootCondition.builder(ModBlocks.BLUE_CAKE_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(BlueCakeCropBlock.AGE, 8));
         this.addDrop(ModBlocks.BLUE_CAKE_CROP, this.cropDrops(ModBlocks.BLUE_CAKE_CROP, ModItems.BLUE_CAKE, ModItems.BLUE_CAKE_SEEDS, builder3));
+
+        // Yellow Cake Crop Drops - if you only want the item to drop from the top block
+        BlockStatePropertyLootCondition.Builder builder4 = BlockStatePropertyLootCondition.builder(ModBlocks.YELLOW_CAKE_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(YellowCakeCropBlock.AGE, 14));
+        this.addDrop(ModBlocks.YELLOW_CAKE_CROP, this.cropDrops(ModBlocks.YELLOW_CAKE_CROP, ModItems.YELLOW_CAKE, ModItems.YELLOW_CAKE_SEEDS, builder4));
 
 
         // Blue Cake Crop Drops - use this if you want both the bottom and top stage to drop items (example sugar cane)

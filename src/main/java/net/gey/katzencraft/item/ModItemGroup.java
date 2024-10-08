@@ -31,5 +31,7 @@ public class ModItemGroup {
                         entries.add(ModItems.PINK_CAKE_SEEDS);
                         entries.add(ModItems.BLUE_CAKE);
                         entries.add(ModItems.BLUE_CAKE_SEEDS);
+                        entries.add(ModItems.YELLOW_CAKE);
+                        entries.add(ModItems.YELLOW_CAKE_SEEDS);
                     }).build());
 }
